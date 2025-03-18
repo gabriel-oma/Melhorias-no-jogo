@@ -22,7 +22,7 @@ Este projeto é um jogo de batalha em turnos entre um herói e um vilão, desenv
 ## Como Executar
 
 
-2. **Clonar o repositório** (se aplicável):
+2. **Clonar o repositório**:
    ```bash
    git clone https://github.com/gabriel-oma/Projeto-3v.a.git
    cd Projeto-3v.a
