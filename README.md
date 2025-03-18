@@ -24,8 +24,8 @@ Este projeto é um jogo de batalha em turnos entre um herói e um vilão, desenv
 
 2. **Clonar o repositório** (se aplicável):
    ```bash
-   git clone https://github.com/gabriel-oma/Melhorias-no-jogo.git
-   cd Melhorias-no-jogo
+   git clone https://github.com/gabriel-oma/Projeto-3v.a.git
+   cd Projeto-3v.a
    ```
 
 3. **Executar o jogo**:
