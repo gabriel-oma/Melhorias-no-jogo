@@ -1,6 +1,6 @@
 from personagem import Personagem
+from utils import registrar_acao
 import random
-
 
 class Vilao(Personagem):
     def __init__(self, nome, vida, ataque, defesa, maldade):
@@ -8,19 +8,7 @@ class Vilao(Personagem):
         self.maldade = maldade
 
     def ataque_especial(self, alvo):
-        if random.random() > 0.5:
-            dano = self.ataque * 1.5
-            print(f'{self.nome}: "hahaha sinta o meu poder!"')
-        else:
-            dano = self.ataque
-            print(f'{self.nome}: "agora você vai ver!!"')
+        dano = self.ataque * 1.5 if random.random() > 0.5 else self.ataque
+        registrar_acao(f"{self.nome} usou um ataque especial contra {alvo.nome}, causando {dano} de dano!")
+        print(f"{self.nome}: 'Sinta meu poder!'")
         alvo.receber_dano(dano)
-
-    def dialogar(self, outro):
-        mensagens = [
-            f'{self.nome}: "hahaha! você é fraco, {outro.nome}!"',
-            f'{self.nome}: "vou te esmagar!"',
-            f'{self.nome}: "seus esforços são inúteis!"',
-            f'{self.nome}: "sinta o terror!"'
-        ]
-        print(random.choice(mensagens))
