@@ -1,75 +1,98 @@
-# **MELHORIAS- PROJETO 3.VA**
 
-Este projeto é um jogo de batalha entre um herói e um vilão, desenvolvido em **Python**. O jogador pode atacar, usar poções e enfrentar inimigos em combates estratégicos.
+# Projeto: Batalha entre Herói e Vilão com Sistema de Log
 
----
-
-## **Estrutura do Projeto**
-
-O código está organizado da seguinte maneira:
-
-- **main.py** → Arquivo principal que executa o jogo.
-- **personagem.py** → Contém a classe base `Personagem` e a classe `Heroi`.
-- **vilao.py** → Contém a classe `Vilao`, derivada de `Personagem`.
-- **README.md** → Documentação do projeto.
+Este projeto é um jogo de batalha em turnos entre um herói e um vilão, desenvolvido em Python. O herói pode atacar, usar poções de cura e poções de força, enquanto o vilão possui um ataque especial que causa dano adicional. O jogo é interativo, com diálogos entre os personagens, um menu para o jogador escolher suas ações e um sistema de log que registra todas as ações durante a batalha em um arquivo `registro.txt`.
 
 ---
 
-## **Como Jogar**
+## Funcionalidades
 
-1. Clone o repositório:
-   ```sh
+- **Batalha em turnos**: O herói e o vilão se enfrentam em turnos alternados.
+- **Ações do Herói**:
+  - **Atacar**: Causa dano ao vilão.
+  - **Poção de Cura**: Restaura a vida do herói.
+  - **Poção de Força**: Aumenta o ataque do herói.
+- **Ataque Especial do Vilão**: O vilão tem uma chance de causar dano adicional ao herói.
+- **Diálogos**: Interações entre o herói e o vilão durante a batalha.
+- **Menu Interativo**: O jogador escolhe as ações do herói através de um menu.
+- **Sistema de Log**: Todas as ações e diálogos são registrados em um arquivo `registro.txt`, que é criado automaticamente durante a execução do jogo.
+
+---
+
+## Como Executar
+
+
+2. **Clonar o repositório** (se aplicável):
+   ```bash
    git clone https://github.com/gabriel-oma/Melhorias-no-jogo.git
    cd Melhorias-no-jogo
    ```
 
-2. Execute o jogo:
-   ```sh
-   python main.py
-   ```
+3. **Executar o jogo**:
+   - Navegue até o diretório onde os arquivos do jogo estão localizados.
+   - Execute o arquivo `main.py`:
+     ```bash
+     python main.py
+     ```
 
-3. Interaja com o jogo:
-   - Escolha entre **Atacar (A)**, **Usar Poção de Cura (C)** ou **Usar Poção de Força (F)**.
-   - O objetivo é **derrotar o vilão antes que ele derrote você!**
-
----
-
-## **Descrição dos Arquivos**
-
-### **main.py**
-- Gerencia a batalha entre o herói e o vilão.
-- Permite a interação do jogador via entrada do teclado.
-- Controla a lógica do jogo e a sequência de turnos.
-
-### **personagem.py**
-- Contém a classe `Personagem`, base para heróis e vilões.
-- Define atributos como vida, ataque e defesa.
-- Possui métodos para ataque, defesa e diálogo.
-- Inclui a classe `Heroi`, que pode usar poções para se fortalecer.
-
-### **vilao.py**
-- Contém a classe `Vilao`, que herda de `Personagem`.
-- Possui ataques especiais e falas ameaçadoras.
+4. **Jogar**:
+   - Siga as instruções no console para escolher as ações do herói.
+   - A batalha continua até que o herói ou o vilão seja derrotado.
+   - Todas as ações e diálogos serão registrados no arquivo `registro.txt`, que será criado automaticamente na mesma pasta onde o jogo está sendo executado.
 
 ---
 
-## **Exemplo de Jogo**
+## Estrutura do Projeto
 
+- **`main.py`**: Contém a lógica principal do jogo, incluindo o menu e a batalha.
+- **`heroi.py`**: Define a classe `Heroi`, com métodos para atacar e usar poções.
+- **`vilao.py`**: Define a classe `Vilao`, com um ataque especial.
+- **`personagem.py`**: Define a classe base `Personagem`, com atributos como vida, ataque e defesa.
+- **`utils.py`**: Contém a função `registrar_acao`, que registra as ações e diálogos no arquivo `registro.txt`.
+- **`README.md`**: Este arquivo, com informações sobre o projeto.
+
+---
+
+## Sistema de Log
+
+O sistema de log é implementado no arquivo `utils.py`. Ele registra todas as ações e diálogos durante a batalha em um arquivo chamado `registro.txt`. O arquivo é criado automaticamente na primeira execução do jogo e é atualizado a cada ação.
+
+### Exemplo de Conteúdo do `registro.txt`:
 ```
-=== Batalha: Link vs Ganon ===
-Ganon: "Seus esforços são inúteis!"
-Link: "Se prepare, que agora eu vou te atacar!"
-Escolha: Atacar (A), Usar Poção de Cura (C) ou Usar Poção de Força (F): A
-Ganon recebeu 12 de dano! Vida restante: 108
-Ganon: "Agora você vai ver!!"
-Link recebeu 15 de dano! Vida restante: 85
-...
+Batalha começou: Link vs Ganon!
+Link atacou Ganon causando 20 de dano!
+Ganon recebeu 10 de dano! Vida restante: 110.
+Ganon usou um ataque especial contra Link, causando 37 de dano!
+Link recebeu 29 de dano! Vida restante: 71.
+Link usou uma Poção de Cura! Vida agora: 96.
+Ganon foi derrotado por Link!
 ```
 
 ---
 
+### Menu de Ações
+```
+--- Menu ---
+1. Atacar (A)
+2. Poção de Cura (C)
+3. Poção de Força (F)
+4. Ver Registro de Ações (R)
+5. Sair (S)
+Escolha uma opção: A
+```
 
 
+## Personalização
 
+- **Herói e Vilão**:
+  - Você pode alterar os atributos do herói e do vilão no arquivo `main.py`:
+    ```python
+    heroi = Heroi("Link", 100, 20, 8)
+    vilao = Vilao("Ganon", 120, 25, 10, "Alta")
+    ```
 
+- **Log**:
+  - O arquivo `registro.txt` é gerado automaticamente. Se quiser limpar o log, basta excluir o arquivo `registro.txt` antes de executar o jogo novamente.
+
+---
 
